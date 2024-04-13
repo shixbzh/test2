@@ -1,0 +1,44 @@
+\section{ Expérimentations et usages}
+\subsection{Interface graphique:}
+
+
+pour l'interface graphique on a decidé de separé en deux JPanel le Jframe l'un qui affichera la grille en l'etat et son nombre de tour effectué et l'autre JPanel qui servira de controleur avec trois boutons pour soit commencé ou mettre en pause la simultation un bouton Reset qui fait recommencé la simulation a zero ou genere un autre grille pour la grille aleatoire et un dernier bouton qui permet de changer le mode de la grille (fichier , aleatoir,vide) 
+on avait aussi voulu implement un dernier bouton qui aller lui changer le mode de regle disponible
+
+Pour ce qui est du Jpanel de la grille on a deux options soit affiché la grille avec des Jbutton ce qui rend la classe VueGrille tres lourdes car pour chaque cellule elle crée une nouvelle class VueCelulle qui utilise le jbutton , l'aventage de cette classe JPanel est qu'elle évite de devoir implementer l'interface MouseListener pour le clique sur le changement de cellule mais en termes de vitesse d'execution la deuxième classe VueGrilleÉ est bien meilleur.
+Non seulement VUeGrille2 utilise la classe JscrollPane qui permet d'avoir une grille d'une taille superieur à 300x300.La classe utilise dans la méthode paintComponent() la méthode getCelluleVivante() de la classe abstraite Grilles qui permet d"eviter de faire des test pour chaque case de la grille et donc de verifier à chaque fois si la case doit être desciner ou non .  
+
+
+
+\subsection{Cas d’utilisation (exemples d’utilisation avec capture d’écran)}
+Démarrer la simulation :
+
+Capture d'écran :
+
+Étapes :
+L'utilisateur ouvre l'application .
+La grille de cellules est initialisée avec un état aléatoire ou vide.
+L'utilisateur appuie sur le bouton "Start" pour démarrer la simulation.
+Les cellules évoluent en fonction des règles de Conway.
+
+Interaction UI\footnote{User interface => interface utilisateur}  :
+L'utilisateur peut directement cliquer sur la grille et les cellules pour les faire naître ou mourir.
+
+Capture d'écran :
+
+Étapes :
+L'utilisateur utilise la souris pour cliquer sur une cellule.
+Si la cellule est vivante, elle meurt et devient noire.
+Si la cellule est morte, elle naît et devient blanche.
+
+
+Cas d'utilisation : Arrêter le jeu
+
+L'utilisateur arrête la simulation en cours et réinitialise la grille.
+
+Capture d'écran :
+
+Étapes :
+L'utilisateur appuie sur le bouton "Pause" pour arrêter la simulation.
+L'utilisateur appuie sur le bouton "Reset" pour réinitialiser la grille à son état initial.
+\newpage

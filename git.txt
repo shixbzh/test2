@@ -1,0 +1,5 @@
+git add "fichier"
+git commit -m "message"
+git push
+
+svn add

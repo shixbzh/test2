@@ -1,0 +1,137 @@
+
+\documentclass{article}
+
+\usepackage{amsfonts}
+\renewcommand*\familydefault{\sfdefault}
+
+\usepackage[comma,authoryear]{natbib}
+\renewcommand{\bibname}{References} % DO NOT remove or switch of 
+\usepackage[hypcap=true]{caption}
+\usepackage[french]{babel}
+\usepackage[cmex10]{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{mydef}{Definition}
+\newtheorem{mytherm}{Theorem}
+\usepackage{hyperref}
+\usepackage{varioref}
+
+\usepackage[T1]{fontenc}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+title=\lstname
+}
+
+\lstset{style=mystyle,breaklines=true,xleftmargin=\parindent}
+
+
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{lipsum}
+
+
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{makecell}
+\usepackage{booktabs}
+
+\usepackage{enumitem}
+\newlist{abbrv}{itemize}{1}
+\setlist[abbrv,1]{label=,labelwidth=1in,align=parleft,itemsep=0.1\baselineskip,leftmargin=!}
+
+
+
+
+\usepackage[toc]{appendix}
+
+\begin{document}
+    
+    \begin{titlepage}      
+        \begin{center}
+            \includegraphics[width=7cm]{figures/logoUNICAEN.png}\\[0.5cm]
+            {\LARGE Licence 2 Informatique\\[0.5cm]
+            Groupe TP 2B}\\[1cm]
+
+            \linespread{1.2}\huge {
+            
+                Simulateur de jeux de la vie
+            
+            }
+            \linespread{1}~\\[1cm]
+			%{\color{blue} \rule{\textwidth}{1pt}}
+            {\Large 
+
+                Remi Brouazin,\hspace{0.1in} Lorenzo Fanit, \hspace{0.1in} \\Yassmine Habil,\hspace{0.1in} Jody-Ange Agbohouto.
+                % change end             
+            }\\[1cm] 
+            
+
+            {\large 
+         
+                \emph{Superviseur de Projet:} CAGNIOT Emmanuel}\\[1cm] % if applicable
+
+            \large 
+
+            \vfill
+            
+            
+            \today % Please update this date you can use \date{April 2020} for fixed date
+        \end{center}
+    \end{titlepage}
+    
+    
+    % -------------------------------------------------------------------
+    % Declaration
+    % -------------------------------------------------------------------
+    \newpage
+    \thispagestyle{empty}
+     
+    \noindent
+
+    \noindent
+
+    
+    \tableofcontents
+    \listoffigures
+    \listoftables
+
+    \newpage
+    
+    \input{chapters/introduction.tex}
+    \input{chapters/objectifs.tex}
+    \input{chapters/fonctionalites.tex}
+    \input{chapters/elements.tex}
+    \input{chapters/architecture.tex}
+    \input{chapters/experimentations.tex}
+    \input{chapters/conclusions.tex}
+    
+
+    \bibliographystyle{unsrt} 
+    
+    \section*{References}
+    \begin{itemize}
+   \item\href{http://pdbzro.com/gags/math/jeudelavie.pdf}{Jeu de la vie}
+    \item\href{https://conwaylife.com/wiki/Main_Page}{Lifewiki}
+    \item\href{https://neuralpatterns.io/}{Automates Cellulaires neureux}
+    \item\href{https://www.youtube.com/watch?v=S-W0NX97DB0}{Science Etonnante : jeu de la vie}
+    \end{itemize}
+    
+    
+\end{document}

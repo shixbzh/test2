@@ -1,0 +1,101 @@
+\section{Elements techniques}
+
+\subsection{Description des paquetages non standards utilisés}
+    Paquetages non standards\label{ref:les classes} :
+
+jeudelavie\textbf{.cellule :}  Contient toutes les classes concernées par les cellules du jeu.
+jeudelavie\textbf{.grille :} Comprends les classes pour la gestion des grilles du jeu.
+jeudelavie\textbf{.regles :} Contient les classes définissant les règles spécifiques du jeu.
+
+jeudelavie\textbf{.interfacegraphique :} Comprend les classes pour l'interface graphique du jeu.
+
+jeudelavie\textbf{.run :} Point d'entrée de l'application. Initialise l'interface graphique et démarre la simulation.
+
+Pacquetages et classes principales :
+
+Cellule.java : Représente une cellule individuelle du jeu, avec des méthodes pour gérer son état et ses voisins.
+
+Grilles.java\label{exp} : Classe abstraite définissant les comportements communs des grilles de jeu.
+
+Regles.java : Interface définissant les règles du jeu à implémenter pour différentes variantes.
+
+Regle.java : Implémentation des règles de base du "Jeu de la Vie" selon Conway.
+RegleHighLife.java : Implémentation des règles du "HighLife".
+RegleDayAndNight.java : Implémentation des règles du "Day \& Night".
+
+GrilleGUI.java : Fenêtre principale de l'interface graphique, affiche la grille et les contrôles (start, pause, reset).
+
+\subsection{Description des algorithmes (non triviaux)}
+Algorithme pour l'évolution des cellules :
+
+\begin{algorithm}
+  \SetAlgoLined
+  \KwIn{Matrice $nbNecessaire$ représentant les configurations de voisins nécessaires, Entier $nbrCellV$ représentant le nombre de voisins vivants}
+  \KwOut{État de la cellule (Vivant ou Mort)}
+  
+  \ForEach{ligne $row$ dans $nbNecessaire$}{
+    \ForEach{élément $elem$ dans $row$}{
+      \If{$elem == nbrCellV$}{
+        \KwRet{Vivant}\;
+      }
+    }
+  }
+  \KwRet{Mort}\;
+  
+  \caption{Méthode de survie d'une cellule}
+\end{algorithm}
+Cet algorithme parcourt chaque cellule de la grille, compte les voisins vivants et détermine l'état de chaque cellule pour la prochaine génération en appliquant les règles spécifiques du Jeu de la Vie.\newline \newline
+
+Algorithme des Voisins :\newline \newline \newline \newline \newline \newline \newline \newline 
+
+\begin{algorithm}
+  \SetAlgoLined
+  \KwIn{Cellule $cell$}
+  \KwOut{Nombre de voisins vivants}
+
+  \SetKwArray{voisins}{voisins}
+  \voisins $\gets$ tableau de 8 cellules contenant les voisins de $cell$\;
+  
+  \voisins[0] $\gets$ $cell$.getGrille().getCellule($cell$.getX() - 1, $cell$.getY() + 1)\;
+  \voisins[1] $\gets$ $cell$.getGrille().getCellule($cell$.getX(), $cell$.getY() + 1)\;
+  \voisins[2] $\gets$ $cell$.getGrille().getCellule($cell$.getX() + 1, $cell$.getY() + 1)\;
+  \voisins[3] $\gets$ $cell$.getGrille().getCellule($cell$.getX() + 1, $cell$.getY())\;
+  \voisins[4] $\gets$ $cell$.getGrille().getCellule($cell$.getX() + 1, $cell$.getY() - 1)\;
+  \voisins[5] $\gets$ $cell$.getGrille().getCellule($cell$.getX(), $cell$.getY() - 1)\;
+  \voisins[6] $\gets$ $cell$.getGrille().getCellule($cell$.getX() - 1, $cell$.getY() - 1)\;
+  \voisins[7] $\gets$ $cell$.getGrille().getCellule($cell$.getX() - 1, $cell$.getY())\;
+
+  $cpt \gets 0$\;
+  \For{$c$ \textbf{in} \voisins}{
+    \If{$c$.getArchiveEtat() $==$ Etat.Vivant}{
+      $cpt \gets cpt + 1$\;
+    }
+  }
+  
+  \KwRet{$cpt$}\;
+
+  \caption{Notre algorithme pour récupérer les voisins autour de chaque cellule}
+\end{algorithm}
+
+
+Algorithme pour générer des cellules aléatoirement : 
+\lstinputlisting[language=Java,frame=single]{src.java}
+
+
+\subsection{Description des structures de données (non triviales)}
+    Comme structures de données que nous avons nous même dévéloppés, on peut citer: 
+   \begin{enumerate}
+       \item Grille : La classe Grilles représente la grille de cellules. Elle utilise un tableau de 2-dimensions pour stocker l'état de chaque cellule.
+Propriétés :
+lignes: Nombre de lignes dans la grille.
+colonnes: Nombre de colonnes dans la grille.
+listCelluleVivante: Liste des cellules vivantes dans la grille.
+
+\item Cellule : La classe Cellule représente une cellule individuelle dans la grille.
+Propriétés : x, y: Coordonnées de la cellule dans la grille.
+etat: État actuel de la cellule (vivant ou mort).
+etatArchive: État archivé de la cellule.
+   \end{enumerate}
+   
+
+

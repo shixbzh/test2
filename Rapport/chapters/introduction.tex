@@ -1,0 +1,88 @@
+\section{Introduction}
+
+
+
+\subsection{Description générale du projet}
+	Le jeu de la vie est un automate cellulaire inventé par le mathématicien John Horton Conway au début des années 1970. Le jeu en fait c'est comme un quadrillage avec une multitude de cases, où chaque case peut être dans deux états possibles : "vivante"  ou "morte". L'état de chaque case à un instant donné dépend de l'état de ses 8 cases voisines à l'instant précédent, selon des règles données.
+\begin{enumerate}
+	\item Les règles de Conway: 
+ 
+        \begin{itemize}
+            \item Une cellule morte entourée exactement de trois cellules vivantes devient vivante à la génération suivante (naissance).
+            \item  Une cellule vivante entourée de deux ou trois cellules vivantes reste vivante à la génération suivante.
+            \item Toute autre cellule vivante meurt à la génération suivante de surpopulation ou de sous-population.
+
+        Le Jeu de la Vie selon les règles de Conway est le plus connu.
+        \end{itemize}
+	\item Le High life:
+            \begin{itemize}
+                \item Les règles du High Life sont similaires à celles du Jeu de la Vie de Conway, mais avec une règle supplémentaire : une cellule vivante entourée de six ou sept voisines vivantes reste vivante à la génération suivante.
+                 \item Le High Life présente également divers motifs mais il peut générer des structures uniques par rapport au Jeu de la Vie de Conway en raison de cette règle supplémentaire.
+            \end{itemize}
+	\item Le Day \& Night:
+            \begin{itemize}
+                \item C'est un automate cellulaire similaire au Jeu de la Vie de Conway, mais il fonctionne dans des conditions cycliques où le nombre de cellules vivantes (noires) dans un quart de la grille doit être égal au nombre de cellules mortes (blanches).
+                
+            \end{itemize}
+ 
+\end{enumerate}
+
+En fait, il ne s'agit pas véritablement d'un jeu jeu au sens propre mais d'une sorte de simulation de l’évolution de cellule sur une surface. 
+
+Dans un premier temps, il s'agit de réaliser une interface permettant de visualiser un tel jeu et définir différentes règles d’évolution.
+
+Tout au long de dévéloppement du jeu, on a beaucoup utilisé un vocabulaire pratique pour décrire des facteurs dans le jeu.
+
+\begin{itemize}
+    \item La sous-population: Une cellule vivante avec moins d'un nombre défini de voisins meurt d'isolement.
+    
+    \item La survie: Une cellule avec un nombre défini de cellules voisines survie à la prochaine génération
+    \item La sur-population: Une cellule avec un certain nombre de cellules voisines meurt de sur-population.
+    \item La naissance: Une cellules morte avec un nombre défini de voisins naît 
+\end{itemize}
+
+L'evolution de la grille peut produire des schéma différents, notamment:
+\begin{enumerate}
+    \item Configurations stables:
+    \item Les oscillateurs: Des schémas qui se répètent sur un certain nombre de générations
+    \item Les vaisseaux: Des motifs qui se déplacent sur la grille
+\end{enumerate}
+
+En jouant, on peut observer les motifs se dessiner ou apparaître par rapport aux configurations pré-definis
+Players can observe these patterns unfold or set initial configurations to see how they evolve over time.
+
+Le jeu de la vie à plusieurs applications en informatique, en mathematiques et même en biologie. Il sert de modèle for etudier des systèmes complexes et pour des algos de dévéloppement.
+
+\subsection{Description générale de la problématique}
+
+Dans le contexte d'implémenter ce jeu, nous allons nous frotter à dans notions essentiels à maîtiser pour tout bon dévéloppeur logiciel:
+
+\begin{enumerate}
+    \item Premièrement, d'implémenter une grille 2-dimensions pour répresenter les cellules.
+    Les cellules pourront être représentées soit avec des valeurs booléenes ou avec un ENUM.
+
+    \item L'initialisation de la grille avec une configuration initiale de cellules morte comme vivantes. Cela pourra être fait aléatoirement ou en utilisant une grille définie.
+    
+    \item Un algorithme spécifique, appelé HashLife, avec une structure de donnée adaptée permettant de calculer rapidement l'état suivant d'une grille. En effet, lorsque le nombre de cellule est trop grand, une méthode de calcul naïve peut être extrêmement coûteuse.
+
+    \item Appliquer une boucle pour simuler l'évolution sur toutes les génération en appliquant les règles à chaque fois en mettant à jour toujours au dernier état
+
+    \item Faire appliquer toutes les règles pour déterminer si une cellule survie, meurt ou naît, mais faire appliquer sur l'entièreté de la grille
+
+    \item Utiliser une GUI (Graphics user interface): Afficher la grille dans une fenêtre où les cellules peuvent être représentées par des carrés de couleur (par exemple, noir pour vivant, blanc pour mort).
+ Mettre à jour l'affichage en temps réel pour montrer la progression des générations.
+
+ \item Interaction utilisateur: Permettre à l'utilisateur d'interagir pour modifier la grille, changer les configurations initiales ou interrompre/reprendre la simulation.
+Mettre en place des contrôles pour démarrer, arrêter et réinitialiser la simulation si nécessaire.
+
+    \item Outils de programmation : Evoluer avec le de programmation imposé: JAVA avec Swing pour la partui GUI.
+    
+    Utiliser efficacement les structures de données et les algorithmes pour gérer les opérations de la grille et la logique de simulation.
+    
+    \item Test et analyse :
+Tester la mise en œuvre avec différentes configurations initiales et différents ensembles de règles afin d'observer et d'analyser les comportements émergents.
+
+
+\end{enumerate}
+
+
